@@ -15,7 +15,10 @@
     "test:ci": "jest --bail --findRelatedTests --passWithNoTests",
     "build-quantum": "cross-env QUANTUM_MODE=true babel src --out-dir dist-quantum --extensions '.js,.jsx,.ts,.tsx'",
     "build-regular": "babel src --out-dir dist --extensions '.js,.jsx,.ts,.tsx'",
-    "prebuild": "mkdir -p dist dist-quantum"
+    "prebuild": "mkdir -p dist dist-quantum",
+    "release": "git add . && git commit -m 'Release' && npm version patch && npm publish",
+    "prepublishOnly": "npm run test && npm run build",
+    "postpublish": "git push --follow-tags"
   },
   "jest": {
     "testEnvironment": "jsdom",
@@ -28,5 +31,12 @@
     }
   },
   "name": "@igor-igl1/igl-lib",
-  "version": "0.0.2"
+  "version": "0.0.2",
+  "description": "IGL Standard Library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": "[dist]",
+  "dependencies": {
+    "@igor-igl1/igl-lib": "^0.0.2"
+  }
 }
