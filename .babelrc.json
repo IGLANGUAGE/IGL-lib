@@ -1,0 +1,28 @@
+{
+  "presets": [
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        },
+        "modules": false
+      }
+    ]
+  ],
+  "ignore": [
+    "**/*.d.ts",
+    "**/__tests__",
+    "**/*.test.ts"
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ]
+  ],
+  "sourceMaps": true
+}

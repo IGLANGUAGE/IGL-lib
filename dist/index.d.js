@@ -14,4 +14,3 @@ Object.keys(_math).forEach(function (key) {
     }
   });
 });
-//# sourceMappingURL=index.js.map
