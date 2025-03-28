@@ -10,7 +10,7 @@
     "husky": "^8.0.0"
   },
   "scripts": {
-    "prepare": "husky && husky install",
+    "prepare": "husky install",
     "test": "echo 'Тесты выполняются...' && exit 0",
     "test:ci": "jest --bail --findRelatedTests --passWithNoTests",
     "build-quantum": "cross-env QUANTUM_MODE=true babel src --out-dir dist-quantum --extensions '.js,.jsx,.ts,.tsx'",
@@ -28,5 +28,5 @@
     }
   },
   "name": "@igor-igl1/igl-lib",
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
