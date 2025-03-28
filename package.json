@@ -5,6 +5,7 @@
     "@babel/node": "^7.26.0",
     "@babel/plugin-transform-runtime": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
+    "@babel/preset-typescript": "^7.27.0",
     "@babel/runtime-corejs3": "^7.27.0",
     "cross-env": "^7.0.3",
     "husky": "^8.0.0"
@@ -18,7 +19,9 @@
     "prebuild": "mkdir -p dist dist-quantum",
     "release": "git add . && git commit -m 'Release' && npm version patch && npm publish",
     "prepublishOnly": "npm run test && npm run build",
-    "postpublish": "git push --follow-tags"
+    "postpublish": "git push --follow-tags",
+    "build": "babel src --out-dir dist --extensions '.js,.ts'",
+    "prepack": "npm run build"
   },
   "jest": {
     "testEnvironment": "jsdom",
