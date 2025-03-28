@@ -27,5 +27,6 @@
       }
     }
   },
-  "name": "@igor-igl1/igl-lib"
+  "name": "@igor-igl1/igl-lib",
+  "version": "0.0.1"
 }
