@@ -10,6 +10,7 @@
     "@eslint/js": "^9.23.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.14",
+    "conventional-changelog-cli": "^5.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^9.23.0",
     "eslint-plugin-react": "^7.37.4",
@@ -27,13 +28,14 @@
     "build-quantum": "cross-env QUANTUM_MODE=true babel src --out-dir dist-quantum --extensions '.js,.jsx,.ts,.tsx'",
     "build-regular": "babel src --out-dir dist --extensions '.js,.jsx,.ts,.tsx'",
     "prebuild": "mkdir -p dist dist-quantum",
-    "release": "git add . && git commit -m 'Release' && npm version patch && npm publish",
+    "release": "npm run changelog && git add CHANGELOG.md && git commit -m 'docs: update changelog'",
     "prepublishOnly": "npm run test && npm run build",
     "postpublish": "git push --follow-tags",
     "build": "tsc && babel src --out-dir dist --extensions '.js,.ts,.tsx'",
     "prepack": "npm run build",
     "ts-init": "echo '{ \"compilerOptions\": { \"outDir\": \"./dist\", \"rootDir\": \"./src\", \"jsx\": \"react\", \"declaration\": true } }' > tsconfig.json",
-    "docs": "typedoc"
+    "docs": "typedoc",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "jest": {
     "testEnvironment": "jsdom",
@@ -46,7 +48,7 @@
     }
   },
   "name": "@igor-igl1/igl-lib",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "IGL Standard Library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
